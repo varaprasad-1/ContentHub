@@ -9,6 +9,8 @@ import {
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 
 import MainDashboard from './pages/MainDashboard';
 
@@ -82,6 +84,16 @@ function App() {
               setIsAuthenticated={setIsAuthenticated}
             />
           }
+        />
+
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}
+        />
+
+        <Route
+          path="/reset-password/:token"
+          element={<ResetPassword />}
         />
 
         {/* =========================

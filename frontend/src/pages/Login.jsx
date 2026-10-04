@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function Login({ setIsAuthenticated }) {
   const [formData, setFormData] = useState({
@@ -9,6 +9,7 @@ function Login({ setIsAuthenticated }) {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
 
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
@@ -41,6 +42,9 @@ function Login({ setIsAuthenticated }) {
   return (
     <div className="form-container">
       <h2 style={{ marginBottom: '2rem', textAlign: 'center' }}>Sign In</h2>
+      {location.state?.message && (
+        <p className="form-message success" role="status">{location.state.message}</p>
+      )}
       {error && <div className="error-message" style={{ marginBottom: '1rem', textAlign: 'center' }}>{error}</div>}
 
       <form onSubmit={handleSubmit}>
@@ -64,6 +68,9 @@ function Login({ setIsAuthenticated }) {
             onChange={handleChange}
             required
           />
+          <Link to="/forgot-password" className="forgot-password-link">
+            Forgot Password?
+          </Link>
         </div>
 
         <button

@@ -115,6 +115,7 @@ PORT=5000
 MONGODB_URI=mongodb://localhost:27017/ContentHub
 JWT_SECRET=replace_with_a_long_random_secret
 NODE_ENV=development
+FRONTEND_URL=http://localhost:3000
 ```
 
 Keep `.env` private; environment files are excluded from Git. Use your own MongoDB Atlas URI if needed.
@@ -149,6 +150,12 @@ npm start
 ```
 
 App runs on: `http://localhost:3000`
+
+### Password Reset
+
+Submit a registered email address at `/forgot-password`. The API emails a one-time reset link, which expires after 20 minutes. The response message is the same whether or not the account exists, and the reset token is never returned by the API or displayed on the website.
+
+Configure `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, and `EMAIL_FROM` in the private backend `.env` file. For Gmail, use an App Password with 2-Step Verification enabled; do not use your normal Gmail password. Keep these settings private and never commit `.env`.
 
 ## Database Schema
 
