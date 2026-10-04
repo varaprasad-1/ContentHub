@@ -1,0 +1,1799 @@
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8fafc;
+  color: #111827;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+body.dark-mode {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.navbar-container {
+  width: 100%;
+  height: 100%;
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+
+/* =========================================================
+   CONTENTHUB LOGO
+========================================================= */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 26px;
+  font-weight: 700;
+  color: #6366f1;
+
+  white-space: nowrap;
+
+  transition: color 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: #4f46e5;
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+.theme-toggle {
+  width: 62px;
+  height: 36px;
+
+  padding: 3px;
+
+  border: 1px solid #d9def0;
+  border-radius: 50px;
+
+  background: #eef2ff;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.18);
+}
+
+.theme-toggle:active {
+  transform: scale(0.97);
+}
+
+.theme-toggle.light {
+  justify-content: flex-start;
+}
+
+.theme-toggle.dark {
+  justify-content: flex-end;
+  background: #1e293b;
+  border-color: #475569;
+}
+
+.theme-icon {
+  width: 29px;
+  height: 29px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.theme-toggle.dark .theme-icon {
+  background: #111827;
+}
+
+
+/* =========================================================
+   NAVBAR LINKS
+========================================================= */
+
+.navbar-links {
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a {
+  color: #111827;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #6366f1;
+}
+
+
+/* =========================================================
+   NAVBAR BUTTON
+========================================================= */
+
+.navbar-button {
+  border: none;
+
+  background: #6366f1;
+  color: #ffffff;
+
+  padding: 10px 24px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-button:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.navbar-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   DARK MODE - NAVBAR
+========================================================= */
+
+body.dark-mode .navbar {
+  background: #111827;
+  border-bottom-color: #263244;
+}
+
+body.dark-mode .navbar-logo {
+  color: #818cf8;
+}
+
+body.dark-mode .navbar-logo:hover {
+  color: #a5b4fc;
+}
+
+body.dark-mode .navbar-links a {
+  color: #f8fafc;
+}
+
+body.dark-mode .navbar-links a:hover {
+  color: #a5b4fc;
+}
+
+
+/* =========================================================
+   DASHBOARD LAYOUT
+========================================================= */
+
+.dashboard-layout {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+
+  background: #f8fafc;
+
+  transition: background-color 0.3s ease;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+
+  min-height: calc(100vh - 80px);
+
+  background: #ffffff;
+
+  border-right: 1px solid #e5e7eb;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar li {
+  width: 100%;
+}
+
+.sidebar a {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 16px;
+
+  color: #111827;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.sidebar a:hover {
+  background: #f1f5ff;
+  color: #6366f1;
+}
+
+.sidebar a.active {
+  background: #eef0ff;
+  color: #6366f1;
+
+  border-left: 3px solid #6366f1;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.main-content {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 38px 32px;
+
+  background: #f8fafc;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================================================
+   DASHBOARD TITLE
+========================================================= */
+
+.card-title {
+  font-size: 22px;
+  font-weight: 600;
+
+  color: #111827;
+
+  margin-bottom: 25px;
+
+  transition: color 0.3s ease;
+}
+
+
+/* =========================================================
+   STATISTICS GRID
+========================================================= */
+
+.grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 24px;
+
+  margin-bottom: 24px;
+}
+
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
+.stat-card {
+  min-height: 125px;
+
+  padding: 27px;
+
+  background: #ffffff;
+
+  border-radius: 12px;
+
+  border-left: 4px solid #6366f1;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.stat-card:nth-child(1) {
+  border-left-color: #6366f1;
+}
+
+.stat-card:nth-child(2) {
+  border-left-color: #10b981;
+}
+
+.stat-card:nth-child(3) {
+  border-left-color: #f59e0b;
+}
+
+.stat-card:nth-child(4) {
+  border-left-color: #ef4444;
+}
+
+.stat-card:nth-child(5) {
+  border-left-color: #10b981;
+}
+
+.stat-card:nth-child(6) {
+  border-left-color: #6366f1;
+}
+
+.stat-label {
+  color: #64748b;
+
+  font-size: 14px;
+
+  margin-bottom: 15px;
+}
+
+.stat-value {
+  color: #111827;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   GENERAL CARD
+========================================================= */
+
+.card {
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  padding: 25px;
+
+  margin-bottom: 25px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   RECENT POSTS
+========================================================= */
+
+.recent-posts {
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  padding: 25px;
+
+  margin-top: 30px;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.recent-posts h2 {
+  color: #111827;
+
+  font-size: 21px;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: #ffffff;
+}
+
+thead {
+  background: #f1f3f6;
+}
+
+th {
+  text-align: left;
+
+  padding: 17px 16px;
+
+  color: #111827;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+td {
+  padding: 17px 16px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  color: #111827;
+
+  font-size: 14px;
+}
+
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.badge {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 13px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+.badge-published {
+  background: #dff7ef;
+  color: #059669;
+}
+
+.badge-draft {
+  background: #e9e7ff;
+  color: #6366f1;
+}
+
+.badge-scheduled {
+  background: #fff3d6;
+  color: #d97706;
+}
+
+.badge-pending {
+  background: #fff3d6;
+  color: #d97706;
+}
+
+.badge-failed {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.badge-cancelled {
+  background: #e5e7eb;
+  color: #4b5563;
+}
+
+
+/* =========================================================
+   GENERAL BUTTON
+========================================================= */
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 20px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #6366f1;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   FORMS
+========================================================= */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #374151;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #111827;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #6366f1;
+}
+
+
+/* =========================================================
+   SPINNER
+========================================================= */
+
+.spinner {
+  width: 40px;
+  height: 40px;
+
+  margin: 100px auto;
+
+  border: 4px solid #e5e7eb;
+
+  border-top-color: #6366f1;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   DARK MODE - MAIN APPLICATION
+========================================================= */
+
+body.dark-mode .dashboard-layout {
+  background: #0f172a;
+}
+
+body.dark-mode .main-content {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+body.dark-mode .sidebar {
+  background: #111827;
+  border-right-color: #263244;
+}
+
+body.dark-mode .sidebar a {
+  color: #e5e7eb;
+}
+
+body.dark-mode .sidebar a:hover {
+  background: #1e293b;
+  color: #a5b4fc;
+}
+
+body.dark-mode .sidebar a.active {
+  background: #1e2540;
+  color: #818cf8;
+}
+
+body.dark-mode .card-title {
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   DARK MODE - CARDS
+========================================================= */
+
+body.dark-mode .stat-card {
+  background: #1e293b;
+
+  box-shadow: none;
+}
+
+body.dark-mode .stat-label {
+  color: #94a3b8;
+}
+
+body.dark-mode .stat-value {
+  color: #f8fafc;
+}
+
+body.dark-mode .card {
+  background: #1e293b;
+
+  border-color: #334155;
+
+  box-shadow: none;
+}
+
+body.dark-mode .recent-posts {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode .recent-posts h2 {
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   DARK MODE - TABLE
+========================================================= */
+
+body.dark-mode table {
+  background: #1e293b;
+}
+
+body.dark-mode thead {
+  background: #0f172a;
+}
+
+body.dark-mode th {
+  color: #f8fafc;
+}
+
+body.dark-mode td {
+  color: #f1f5f9;
+  border-bottom-color: #334155;
+}
+
+body.dark-mode tbody tr:hover {
+  background: #243247;
+}
+
+
+/* =========================================================
+   DARK MODE - FORMS
+========================================================= */
+
+body.dark-mode .form-group label {
+  color: #e2e8f0;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .form-group select {
+  background: #1e293b;
+
+  color: #f8fafc;
+
+  border-color: #475569;
+}
+
+body.dark-mode .form-group input::placeholder,
+body.dark-mode .form-group textarea::placeholder {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   SMOOTH THEME TRANSITIONS
+========================================================= */
+
+body,
+.navbar,
+.sidebar,
+.main-content,
+.dashboard-layout,
+.card,
+.stat-card,
+.recent-posts,
+table,
+thead,
+th,
+td,
+.form-group input,
+.form-group textarea,
+.form-group select {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .navbar-container {
+    padding: 0 30px;
+  }
+
+  .main-content {
+    padding: 30px 25px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    height: auto;
+  }
+
+  .navbar-container {
+    min-height: 80px;
+
+    padding: 15px 20px;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .navbar-left {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .navbar-links {
+    gap: 18px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+
+    min-height: auto;
+  }
+
+  .sidebar ul {
+    display: flex;
+
+    overflow-x: auto;
+  }
+
+  .sidebar li {
+    width: auto;
+    min-width: max-content;
+  }
+
+  .sidebar a {
+    padding: 14px 18px;
+  }
+
+  .main-content {
+    padding: 25px 18px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    min-width: 700px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE - SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .navbar-logo {
+    font-size: 22px;
+  }
+
+  .theme-toggle {
+    width: 56px;
+    height: 34px;
+  }
+
+  .navbar-button {
+    padding: 9px 18px;
+  }
+
+  .main-content {
+    padding: 20px 14px;
+  }
+
+  .stat-card {
+    padding: 20px;
+  }
+}
+/* =========================================================
+   CONTENT CALENDAR
+========================================================= */
+
+.calendar-card {
+  width: 100%;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.calendar-month-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.calendar-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+/* Weekday headings */
+.calendar-weekday {
+  text-align: center;
+  font-weight: 700;
+  padding: 12px 8px;
+  background: #e5e7eb;
+  color: #111827;
+  border-radius: 8px;
+}
+
+/* Actual calendar cells */
+.calendar-cell {
+  min-height: 120px;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/*
+   LIGHT MODE
+   Calendar cells = DARK
+*/
+.calendar-day {
+  background: #1f2937;
+  color: #ffffff;
+}
+
+.calendar-empty {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+}
+
+/* Day number */
+.calendar-day-number {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+/* Scheduled platform */
+.calendar-event {
+  font-size: 12px;
+  font-weight: 600;
+
+  background: rgba(129, 140, 248, 0.2);
+  color: #c7d2fe;
+
+  padding: 5px 7px;
+  border-radius: 5px;
+
+  margin-bottom: 5px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   DARK MODE CALENDAR
+========================================================= */
+
+/*
+   DARK MODE
+   Calendar cells = LIGHT
+*/
+body.dark-mode .calendar-day {
+  background: #f8fafc;
+  color: #111827;
+
+  border-color: #cbd5e1;
+}
+
+body.dark-mode .calendar-day-number {
+  color: #111827;
+}
+
+body.dark-mode .calendar-empty {
+  background: #334155;
+  border-color: #475569;
+}
+
+body.dark-mode .calendar-event {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+
+/* Calendar weekday headers */
+body.dark-mode .calendar-weekday {
+  background: #e2e8f0;
+  color: #111827;
+}
+
+
+/* Month title */
+body.dark-mode .calendar-month-title {
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.calendar-day:hover {
+  border-color: #6366f1;
+  transform: translateY(-1px);
+}
+
+body.dark-mode .calendar-day:hover {
+  border-color: #818cf8;
+}
+
+
+/* =========================================================
+   MOBILE CALENDAR
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .calendar-header {
+    gap: 10px;
+  }
+
+  .calendar-month-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .calendar-grid {
+    gap: 5px;
+  }
+
+  .calendar-cell {
+    min-height: 90px;
+    padding: 6px;
+  }
+
+  .calendar-weekday {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+
+  .calendar-day-number {
+    font-size: 13px;
+  }
+
+  .calendar-event {
+    font-size: 10px;
+    padding: 3px 4px;
+  }
+
+}
+
+/* =========================================================
+   CONTENT CALENDAR
+   ========================================================= */
+
+.content-calendar-page {
+  width: 100%;
+}
+
+/* PAGE HEADER */
+
+.calendar-page-header {
+  margin-bottom: 1.5rem;
+}
+
+.calendar-page-header .card-title {
+  margin-bottom: 0.35rem;
+}
+
+.calendar-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   MAIN CALENDAR CARD
+   ========================================================= */
+
+.calendar-card {
+  width: 100%;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #f4f6ff
+  );
+
+  border: 1px solid #dfe3f0;
+
+  box-shadow:
+    0 12px 35px rgba(31, 41, 55, 0.08);
+
+  transition:
+    background 0.3s ease,
+    border 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.calendar-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 1.25rem;
+}
+
+.calendar-month-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+
+  background: linear-gradient(
+    90deg,
+    #6366f1,
+    #8b5cf6
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================================
+   NAVIGATION BUTTONS
+   ========================================================= */
+
+.calendar-nav-btn {
+  border: none;
+
+  padding: 0.7rem 1.15rem;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #7c3aed
+  );
+
+  color: white;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 15px rgba(99, 102, 241, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.calendar-nav-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(99, 102, 241, 0.35);
+}
+
+.calendar-nav-btn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   WEEKDAY HEADER
+   ========================================================= */
+
+.calendar-weekdays {
+  display: grid;
+
+  grid-template-columns:
+    repeat(7, minmax(0, 1fr));
+
+  gap: 8px;
+
+  margin-bottom: 8px;
+}
+
+.calendar-weekday {
+  padding: 0.7rem;
+
+  text-align: center;
+
+  border-radius: 10px;
+
+  background: #e8eaf1;
+
+  color: #252a38;
+
+  font-size: 0.9rem;
+  font-weight: 800;
+
+  border: 1px solid #d8dce7;
+}
+
+
+/* =========================================================
+   CALENDAR GRID
+   ========================================================= */
+
+.calendar-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(7, minmax(0, 1fr));
+
+  gap: 8px;
+}
+
+
+/* =========================================================
+   CALENDAR DAY
+   ========================================================= */
+
+.calendar-day {
+  min-height: 120px;
+
+  padding: 0.65rem;
+
+  border-radius: 11px;
+
+  /*
+    Attractive dark cells in LIGHT MODE
+  */
+  background: linear-gradient(
+    145deg,
+    #253247,
+    #1c2738
+  );
+
+  border: 1px solid #34445d;
+
+  color: #f8fafc;
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* Subtle top glow */
+
+.calendar-day::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #6366f1,
+    #a855f7
+  );
+
+  opacity: 0;
+
+  transition: opacity 0.2s ease;
+}
+
+
+/* Hover */
+
+.calendar-day:not(.calendar-empty):hover {
+  transform: translateY(-3px);
+
+  border-color: #6366f1;
+
+  box-shadow:
+    0 10px 25px rgba(31, 41, 55, 0.2);
+}
+
+.calendar-day:not(.calendar-empty):hover::before {
+  opacity: 1;
+}
+
+
+/* EMPTY CELLS */
+
+.calendar-empty {
+  background: #eef0f5;
+
+  border: 1px solid #e1e4eb;
+
+  box-shadow: none;
+
+  cursor: default;
+}
+
+
+/* =========================================================
+   DATE NUMBER
+   ========================================================= */
+
+.calendar-day-number {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin-bottom: 0.55rem;
+
+  font-size: 0.95rem;
+
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+
+/* TODAY */
+
+.calendar-today {
+  border: 2px solid #8b5cf6;
+
+  box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+.today-label {
+  font-size: 0.65rem;
+
+  padding: 2px 6px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+
+  color: white;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   EVENTS
+   ========================================================= */
+
+.calendar-events {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.calendar-event {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 0.38rem 0.55rem;
+
+  border-radius: 7px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(99, 102, 241, 0.28),
+    rgba(139, 92, 246, 0.22)
+  );
+
+  border: 1px solid rgba(
+    139,
+    92,
+    246,
+    0.25
+  );
+
+  color: #ffffff;
+
+  font-size: 0.73rem;
+
+  font-weight: 600;
+
+  overflow: hidden;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.calendar-event:hover {
+  transform: translateX(2px);
+
+  background: linear-gradient(
+    90deg,
+    rgba(99, 102, 241, 0.42),
+    rgba(139, 92, 246, 0.35)
+  );
+}
+
+.event-dot {
+  width: 7px;
+  height: 7px;
+
+  min-width: 7px;
+
+  border-radius: 50%;
+
+  background: #a78bfa;
+
+  box-shadow:
+    0 0 7px rgba(167, 139, 250, 0.8);
+}
+
+.event-platform {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   UPCOMING SCHEDULES
+   ========================================================= */
+
+.upcoming-schedules-card {
+  border-radius: 18px;
+
+  overflow: hidden;
+}
+
+.upcoming-header {
+  margin-bottom: 1rem;
+}
+
+
+/* PLATFORM BADGE */
+
+.platform-badge {
+  display: inline-block;
+
+  padding: 0.35rem 0.65rem;
+
+  border-radius: 7px;
+
+  background: rgba(
+    99,
+    102,
+    241,
+    0.12
+  );
+
+  color: #6366f1;
+
+  font-size: 0.8rem;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+/*
+  These selectors cover the common dark-mode
+  class names used in React applications.
+*/
+
+body.dark-mode .calendar-card,
+body.dark .calendar-card,
+.dark-mode .calendar-card,
+.dark .calendar-card {
+
+  background: linear-gradient(
+    145deg,
+    #172033,
+    #101827
+  );
+
+  border-color: #29364d;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Dark mode weekday headers */
+
+body.dark-mode .calendar-weekday,
+body.dark .calendar-weekday,
+.dark-mode .calendar-weekday,
+.dark .calendar-weekday {
+
+  background: #253247;
+
+  color: #e5e7eb;
+
+  border-color: #34445d;
+}
+
+
+/* =========================================================
+   DARK MODE CALENDAR CELLS
+   ========================================================= */
+
+body.dark-mode .calendar-day,
+body.dark .calendar-day,
+.dark-mode .calendar-day,
+.dark .calendar-day {
+
+  /*
+    Light cells in DARK MODE
+  */
+  background: linear-gradient(
+    145deg,
+    #edf1f7,
+    #dfe5ef
+  );
+
+  border-color: #cbd5e1;
+
+  color: #172033;
+}
+
+
+/* Dark mode date text */
+
+body.dark-mode .calendar-day-number,
+body.dark .calendar-day-number,
+.dark-mode .calendar-day-number,
+.dark .calendar-day-number {
+
+  color: #172033;
+}
+
+
+/* Dark mode empty cells */
+
+body.dark-mode .calendar-empty,
+body.dark .calendar-empty,
+.dark-mode .calendar-empty,
+.dark .calendar-empty {
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.04
+  );
+
+  border-color: #273449;
+}
+
+
+/* Dark mode event */
+
+body.dark-mode .calendar-event,
+body.dark .calendar-event,
+.dark-mode .calendar-event,
+.dark .calendar-event {
+
+  background: linear-gradient(
+    90deg,
+    #dfe4ff,
+    #e9ddff
+  );
+
+  border-color: #c8bdf5;
+
+  color: #25213b;
+}
+
+body.dark-mode .event-dot,
+body.dark .event-dot,
+.dark-mode .event-dot,
+.dark .event-dot {
+
+  background: #7c3aed;
+
+  box-shadow:
+    0 0 7px rgba(124, 58, 237, 0.5);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .calendar-card {
+    padding: 1rem;
+  }
+
+  .calendar-day {
+    min-height: 95px;
+  }
+
+  .calendar-month-title {
+    font-size: 1.25rem;
+  }
+
+  .calendar-nav-btn {
+    padding: 0.55rem 0.8rem;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .calendar-card {
+    overflow-x: auto;
+  }
+
+  .calendar-grid,
+  .calendar-weekdays {
+    min-width: 650px;
+  }
+
+  .calendar-topbar {
+    min-width: 650px;
+  }
+
+}
