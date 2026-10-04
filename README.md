@@ -8,7 +8,7 @@ ContentHub is a full-stack content management and analytics dashboard that helps
 
 ## Project Information
 
-**Student:** A. Sai Mounika (A21126510003)  
+**Student:** K. Varaprasad (A24126510030)  
 **Course:** 23CS4219 - Software Engineering Laboratory  
 **College:** ANITS Visakhapatnam  
 **Guide:** Prof. A. Rohini
