@@ -4,6 +4,8 @@
 
 ContentHub is a MERN (MongoDB, Express, React, Node.js) stack web application that helps content creators manage their presence across multiple platforms (YouTube, TikTok, Instagram, Twitch, Patreon, Twitter, LinkedIn) from a single unified dashboard.
 
+ContentHub is a full-stack content management and analytics dashboard that helps creators manage posts, schedule content, and track platform-wise performance including views, likes, comments, shares, revenue, and engagement.
+
 ## Project Information
 
 **Student:** A. Sai Mounika (A21126510003)  
