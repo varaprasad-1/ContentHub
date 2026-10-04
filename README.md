@@ -373,10 +373,10 @@ Create an account through the registration page for local testing.
 
 ## Author
 
-**A. Sai Mounika**  
-III Year B.Tech CSE  
+**K. Varaprasad**  
+B.Tech CSE  
 ANITS Visakhapatnam  
-Roll Number: A21126510003
+Roll Number: A24126510030
 
 ## License
 
